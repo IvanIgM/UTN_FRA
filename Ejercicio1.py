@@ -12,13 +12,17 @@ Ejercicio 01:
 
 Nos encargan el desarrollo de una aplicación que le permita a sus usuarios operar
 en la bolsa de valores:
+
 A) Para ello se cargarán los siguientes datos hasta que el usuario lo decida:
 * Nombre
 * Monto en pesos de la operación (no menor a $10000)
 * Cantidad de instrumentos
 * Tipo (CEDEAR, BONOS, MEP)
+
 B) Luego del ingreso mostrar en pantalla todos los datos.
+
 C) Realizar los siguientes informes:
+
 1. Tipo de instrumento que más se operó.
 2. Cantidad de usuarios que compraron entre 150 y 200 BONOS y que invirtieron
 más de $50000.
