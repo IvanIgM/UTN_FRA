@@ -43,6 +43,7 @@ CEDEARCantidad = 0
 BONOSCantidad = 0
 MEPCantidad = 0
 usuariosBonos = 0
+flagMenosDinero = True
 
 
 pregunta = question("Bienvenido", "¿Desea empezar?")
@@ -71,7 +72,7 @@ while pregunta != False:
 
     listaCantidad.append(cantidadInstrumentos_str)
 
-    tipoInstrumento = prompt("Tipo", "Tipo de instrumento (CEDEAR, BONOS, MEP)")
+    tipoInstrumento = prompt("Tipo", "Tipo de instrumento (CEDEAR, BONOS, MEP)").upper()
     while tipoInstrumento == None or tipoInstrumento != "CEDEAR" and tipoInstrumento != "BONOS" and tipoInstrumento != "MEP":
         tipoInstrumento = prompt("Error", "Ingrese correctamente el tipo de instrumento (CEDEAR, BONOS, MEP)")
 
@@ -94,6 +95,21 @@ while pregunta != False:
             MEPCantidad += 1
 
     
+
+    if tipoInstrumento == "BONOS" or tipoInstrumento == "MEP":
+        if flagMenosDinero:
+            
+            nombreMenosDinero = nombre
+            cantMenosDinero = cantidadInstrumentos
+            montoPesosMenosDinero = montoPesos
+            flagMenosDinero = False
+        
+        elif montoPesos < montoPesosMenosDinero:
+            
+            nombreMenosDinero = nombre
+            cantMenosDinero = cantidadInstrumentos
+            montoPesosMenosDinero = montoPesos
+            
 
 
     pregunta = question("Pregunta", "¿Desea ingresar otro usuario?")
@@ -121,5 +137,9 @@ else:
 
 
 print("\nEl intrumento mas usado es: " + tipoMasUsado)
-print("Cantidad de usuarios que compraron entre 150 y 200 BONOS y que invirtieron más de $50000: " + str(usuariosBonos))
+print("\nCantidad de usuarios que compraron entre 150 y 200 BONOS y que invirtieron más de $50000: " + str(usuariosBonos))
 
+if BONOSCantidad == 0 and MEPCantidad == 0:
+    print("\nNo se puede hacer el punto C)3.")
+else:
+    print("\nNombre y cantidad de instrumentos del usuario que compró BONOS o MEP, que menos dinero invirtió: " + nombreMenosDinero + " que invirtio $" + str(montoPesosMenosDinero))
