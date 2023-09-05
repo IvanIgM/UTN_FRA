@@ -139,7 +139,8 @@ else:
 print("\nEl intrumento mas usado es: " + tipoMasUsado)
 print("\nCantidad de usuarios que compraron entre 150 y 200 BONOS y que invirtieron más de $50000: " + str(usuariosBonos))
 
-if BONOSCantidad == 0 and MEPCantidad == 0:
-    print("\nNo se puede hacer el punto C)3.")
-else:
+try:
     print("\nNombre y cantidad de instrumentos del usuario que compró BONOS o MEP, que menos dinero invirtió: " + nombreMenosDinero + " que invirtio $" + str(montoPesosMenosDinero))
+
+except:
+    print("\nNo se puede hacer el punto C)3.")
